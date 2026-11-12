@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
         with:
           global-json-file: global.json
       - run: dotnet --info
@@ -38,8 +38,8 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
         with:
           global-json-file: global.json
       - name: Install MAUI Windows workload
@@ -47,4 +47,4 @@ jobs:
       - name: 03-winforms-visual-styles
         run: dotnet build 03-winforms-visual-styles
       - name: 05-maui-xaml-csharp-expressions (Windows target only)
-        run: dotnet build 05-maui-xaml-csharp-expressions -f net11.0-windows10.0.19041.0
+        run: dotnet build 05-maui-xaml-csharp-expressions -p:TargetFrameworks=net11.0-windows10.0.19041.0
