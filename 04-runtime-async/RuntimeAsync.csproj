@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <!-- PREVIEW: opt in to runtime async for this project's code.
+         To compare with the compiler state machine, build with RuntimeAsync=false (see README). -->
+    <Features Condition="'$(RuntimeAsync)' != 'false'">runtime-async=on</Features>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiXamlExpressions.ViewModels"
+             x:Class="MauiXamlExpressions.MainPage"
+             x:DataType="local:ProductViewModel">
+    <VerticalStackLayout Padding="30" Spacing="16">
+        <!-- Typed binding to the binding context (two-way on Entry.Text). -->
+        <Entry Text="{ProductName}" />
+
+        <!-- Computed binding: updates when Quantity or UnitPrice raise PropertyChanged. -->
+        <Label Text="{$'{Quantity} at {UnitPrice:C2}'}" />
+
+        <!-- Page method: evaluated once when the page initializes. Not a live binding. -->
+        <Label Text="{this.GetStatusText()}" />
+
+        <!-- Event lambda: runs on click. Async lambdas aren't supported. -->
+        <Button Text="Add one" Clicked="{(sender, e) => this.AddOne()}" />
+        <Button Text="Save" Clicked="{(sender, e) => this.Save()}" />
+    </VerticalStackLayout>
+</ContentPage>
